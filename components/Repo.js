@@ -35,14 +35,14 @@ export default class Repo extends Component {
       <View style={styles.repo}>
         <Image
           style={styles.repoImage}
-          source ={{uri: 'asdf' }}
+          source ={{uri: this.props.data.thumbnail }}
         />
         <View style={styles.repoInfo} >
           <Text style={styles.repoTile}>
-            testestestestes
+            {this.props.data.title}
           </Text>
           <Text style={styles.repoAuthor}>
-            testestestestes author
+          {this.props.data.author}
           </Text>
         </View>
       </View>

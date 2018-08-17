@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, ScrollView, Platform } from 'react-native';
+import { StyleSheet, Text, View, ScrollView, Platform, TouchableOpacity } from 'react-native';
 
 import Repo from './components/Repo';
 
@@ -12,8 +12,14 @@ const styles = StyleSheet.create({
     height: 70,
     paddingTop: 20,
     backgroundColor: '#fff',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
+    flexDirection: 'row',
+    paddingHorizontal: 20,
+  },
+  headerButton: {
+    fontSize: 24,
+    fontWeight: 'bold',
   },
   headerText: {
     fontSize: 16,
@@ -46,11 +52,14 @@ export default class App extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.header}>
-          <Text style={styles.headerText} > Hello React Native </Text>
+          <Text style={styles.headerText} > Github thumbnails </Text>
+          <TouchableOpacity onPress={ ()=> {} } >
+            <Text style={styles.headerButton}>+</Text>
+          </TouchableOpacity>
         </View>
         <ScrollView contentContainerStyle={ styles.repoList}  >
             {
-              this.state.repos.map(repo => <Repo key={repo.id} /> )
+              this.state.repos.map(repo => <Repo key={repo.id} data={repo} /> )
             }
         </ScrollView>
       </View>
